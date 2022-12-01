@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button title=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Katalog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Id Mobil</ion-label>
+      <ion-input required [(ngModel)]="id_mobil" readonly placeholder="Id Mobil" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Warna</ion-label>
+      <ion-input required [(ngModel)]="warna"  placeholder="Warna" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Merk</ion-label>
+      <ion-input required [(ngModel)]="merk"  placeholder="Merk" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Kapasitas</ion-label>
+      <ion-input required [(ngModel)]="kapasitas" placeholder="Kapasitas" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Stok</ion-label>
+      <ion-input required [(ngModel)]="stok" placeholder="Stok" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input required [(ngModel)]="harga" placeholder="Harga" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="editMobil()" [routerLink]="['/admin']" color="primary" shape="full" expand="block">Input Katalog
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
