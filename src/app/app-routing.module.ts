@@ -31,7 +31,7 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomePageModule),
   },
   {
-    path: 'form-pinjam',
+    path: 'form-pinjam/:id_mobil',
     loadChildren: () =>
       import('./pages/form-pinjam/form-pinjam.module').then(
         (m) => m.FormPinjamPageModule
@@ -71,12 +71,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/data-admin-tambah/data-admin-tambah.module').then(m => m.DataAdminTambahPageModule)
   },
   {
-    path: 'data-admin-edit/:email',
+    path: 'data-admin-edit/:username',
     loadChildren: () => import('./pages/data-admin-edit/data-admin-edit.module').then(m => m.DataAdminEditPageModule)
   },
   {
     path: 'status-sewa',
-    loadChildren: () => import('./pages/status-sewa/status-sewa.module').then( m => m.StatusSewaPageModule)
+    loadChildren: () => import('./pages/status-sewa/status-sewa.module').then(m => m.StatusSewaPageModule)
+  },
+  {
+    path: 'katalog-edit/:id_mobil',
+    loadChildren: () => import('./pages/katalog-edit/katalog-edit.module').then(m => m.KatalogEditPageModule)
   },
 ];
 

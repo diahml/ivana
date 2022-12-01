@@ -1,0 +1,89 @@
+<ion-app>
+  <ion-menu content-id="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-list-header> Navigate </ion-list-header>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button>
+            <ion-icon slot="start" name="home"></ion-icon>
+            <ion-label> Dashboard </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button [routerLink]="['/input-katalog']" routerLinkActive="router-link-active">
+            <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+            <ion-label> Input Katalog </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button [routerLink]="['/data-sewa']" routerLinkActive="router-link-active">
+            <ion-icon slot="start" name="document-text-outline"></ion-icon>
+            <ion-label> Laporan Data Sewa Mobil </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button [routerLink]="['/data-admin']" routerLinkActive="router-link-active" >
+            <ion-icon slot="start" name="person"></ion-icon>
+            <ion-label> Data Admin </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="false">
+          <ion-item button (click)="logout()">
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-label> Logout </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-page class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-toggle>
+            <ion-button>
+              <ion-icon slot="icon-only" name="menu"></ion-icon>
+            </ion-button>
+          </ion-menu-toggle>
+        </ion-buttons>
+        <ion-title>Admin</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content >
+      <ion-card  lines="inset" *ngFor="let mobil_value of mobil">
+        <img
+          alt="{{ mobil_value.merk }}"
+          src="{{ mobil_value.foto }}"  
+        />
+        <ion-card-header>
+          <ion-card-title>{{ mobil_value.merk }}</ion-card-title>
+          <ion-card-subtitle>{{ mobil_value.harga }}</ion-card-subtitle>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <ion-item lines="none">
+            <ion-label>
+              <p>Kapasitas : {{ mobil_value.kapasitas }}
+                <br>
+                Warna : {{ mobil_value.warna }}
+  
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-button color="primary" slot="end" [routerLink]="['/katalog-edit/',mobil_value.id_mobil]"
+        routerLinkActive="router-link-active">Edit</ion-button>
+      <ion-button color="danger" slot="end" (click)="deleteKatalog(mobil_value.id_mobil)">Hapus</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-content>
+  </ion-page>
+</ion-app>
+
+

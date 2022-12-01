@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button title=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Form Sewa Mobil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">ID Mobil</ion-label>
+    <ion-input required [(ngModel)]="id_mobil" type="text" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Merk</ion-label>
+    <ion-input required [(ngModel)]="merk" type="text" readonly></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nama</ion-label>
+    <ion-input type="text" [(ngModel)]="nama"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Lama Sewa (Hari)</ion-label>
+    <ion-input type="text" required [(ngModel)]="lama"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button slot="start" size="default" (click)="hitungHarga()"> Lihat Biaya </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Jumlah Biaya</ion-label>
+    <ion-input type="text" required [(ngModel)]="jumlah"></ion-input>
+  </ion-item>
+  <br>
+
+  <ion-button color="primary" size="full" (click)="sewaMobil()" >Sewa</ion-button>
+</ion-content>
